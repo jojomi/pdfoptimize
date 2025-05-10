@@ -1,0 +1,27 @@
+version: 2
+
+project_name: pdfoptimize
+
+builds:
+  - id: pdfoptimize
+    main: .
+    goos: [linux, windows, darwin]
+    goarch: [amd64, arm64]
+    ldflags: "-s -w"
+
+archives:
+  - formats:
+      - zip
+    files:
+      - LICENSE
+
+release:
+  github:
+    owner: jojomi
+    name: pdfoptimize
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  version_template: "{{ .Tag }}-dev"
