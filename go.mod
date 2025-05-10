@@ -3,7 +3,7 @@ module github.com/jojomi/pdfoptimize
 go 1.24.1
 
 require (
-	github.com/jojomi/pdfopt v0.1.1
+	github.com/jojomi/pdfopt v0.2.1
 	github.com/spf13/cobra v1.9.1
 )
 

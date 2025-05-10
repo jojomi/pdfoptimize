@@ -119,13 +119,12 @@ func mainHandler(cmd *cobra.Command, args []string) {
 		output = fmt.Sprintf("%s.%s.pdf", strings.TrimSuffix(input, ".pdf"), style)
 	}
 
-	p, err := pdfopt.NewPDFOpt(input)
-	if err != nil {
-		fmt.Fprintln(os.Stderr, "Error opening PDF file:", err)
-		os.Exit(1)
-	}
+	p := pdfopt.NewPDFOpt(input)
 
-	var oldInfo os.FileInfo
+	var (
+	    err error
+	    oldInfo os.FileInfo
+    )
 	if !silent {
 		fmt.Printf("Optimizing %s to %s for %s...\n", input, output, style)
 
